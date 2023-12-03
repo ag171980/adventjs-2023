@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function findFirstRepeated(gifts) {
+        let posArr = [];
+        gifts.forEach((giftI, i) => {
+            gifts.forEach((giftJ, j) => {
+                console.log(giftI, giftJ);
+                // if (i !== j) {
+                //     if (giftI === giftJ) {
+                //         let arr = {};
+                //         if (posArr.length === 0) {
+                //             arr.num = giftJ;
+                //             arr.pos = j;
+                //             posArr.push(arr);
+                //         } else {
+                //             if (posArr.filter((pos) => pos.num === giftI).length === 0) {
+                //                 arr.num = giftJ;
+                //                 arr.pos = j;
+                //                 posArr.push(arr);
+                //             }
+                //         }
+                //     }
+                // }
+            });
+        });
+        if (posArr.length !== 0) {
+            return posArr.reduce((prev, curr) => (prev.pos < curr.pos ? prev : curr))
+                .num;
+        }
+        return -1;
+    }
+
+    const giftIds = [2, 1, 3, 5, 3, 2]
+    findFirstRepeated(giftIds)
+    // const firstRepeatedId = findFirstRepeated(giftIds)
+    // console.log(firstRepeatedId) // 3
+    // Aunque el 2 y el 3 se repiten
+    // el 3 aparece primero por segunda vez
+
+    // const giftIds2 = [1, 2, 3, 4]
+    // const firstRepeatedId2 = findFirstRepeated(giftIds2)
+    // console.log(firstRepeatedId2) // -1
+    // // Es -1 ya que no se repite ningún número
+
+    // const giftIds3 = [5, 1, 5, 1]
+    // const firstRepeatedId3 = findFirstRepeated(giftIds3)
+    // console.log(firstRepeatedId3) // 5
+</script>
+
+</html>
